@@ -46,9 +46,12 @@ python3 go2_mpc/mpc_go2_srbd.py --gait stand --time 5
 `scripts/` 含 ONNX 导出与轻量 viewer（onnxruntime + MuJoCo，秒开）。详见 `go2_rl/README.md`。
 
 ## 说明 / 限制
-- **网格资产（.stl）未包含**：自建狗/部分场景的 STL 体积大且属 CAD 资产，仓库仅保留代码与 XML；需要可自行提供或参考笔记。
+- 安装：`pip install -r requirements.txt`（经典控制 + ONNX viewer 可跑；RL 训练另装 jax/brax/mujoco_playground，见注释）。
+- **自建狗**：`go2_rl/envs/mydog/xmls/` 已内置模型与 `.stl` 资产，配套 viewer 可直接跑。
+- **Go2**：`go2_rl/envs/go2/xmls/assets/` 未内置 Unitree 网格（许可/体积），需从 `mujoco_menagerie/unitree_go2/assets` 复制（见该目录 README）。
+- `go2_rl/envs/` 为自写环境，需按 `envs/INTEGRATION.md` 接入 `mujoco_playground` 才能训练。
 - 自建狗实验中 **“四条腿稳定 trot”未完全成功**（RL 与手写均受限），结论如实记录，见笔记「自建狗」篇。
 - 训练产物 `logs/`、`archive/` 不包含。
 
 ## License
-Apache-2.0（见 LICENSE）
+Apache-2.0（见 LICENSE；Go2 网格资产来自 mujoco_menagerie，遵循其许可）

@@ -12,10 +12,9 @@ import os
 import struct
 import numpy as np
 
-ASSETS = (
-    "/home/cyy/mujoco_ws/go2_rl/mjplay/mujoco_playground/_src/"
-    "locomotion/mydog/xmls/assets"
-)
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+ASSETS = os.path.join(ROOT, "envs", "mydog", "xmls", "assets")
 LEG_MESHES = ["knee_conn", "motor", "thigh_in", "thigh_mid", "thigh_out", "shank", "foot"]
 
 

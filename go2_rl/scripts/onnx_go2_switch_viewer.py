@@ -10,7 +10,7 @@ import onnxruntime as rt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-XML = os.path.join(ROOT, "mjplay", "mujoco_playground", "_src", "locomotion",
+XML = os.path.join(ROOT, "envs",
                    "go2", "xmls", "scene_mjx_fullcollisions_flat_terrain.xml")
 WALK_ONNX = os.path.join(ROOT, "policies", "go2_policy.onnx")
 GETUP_ONNX = os.path.join(ROOT, "policies", "go2_getup.onnx")

@@ -8,14 +8,14 @@ the mirror map  (x, y, z) -> (x, -y, z).
 Run:  python3 scripts/mydog_symmetry_check.py [path/to/model.xml]
 """
 
+import os
 import sys
 import numpy as np
 import mujoco
 
-DEFAULT_XML = (
-    "/home/cyy/mujoco_ws/go2_rl/mjplay/mujoco_playground/_src/"
-    "locomotion/mydog/xmls/mydog_simple.xml"
-)
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+DEFAULT_XML = os.path.join(ROOT, "envs", "mydog", "xmls", "mydog_simple.xml")
 
 PAIRS = [(1, 3, "rear "), (2, 4, "front")]
 

@@ -10,7 +10,7 @@ import onnxruntime as rt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-XML = os.path.join(ROOT, "mjplay", "mujoco_playground", "_src", "locomotion",
+XML = os.path.join(ROOT, "envs",
                    "go2", "xmls", "scene_mjx_feetonly_wall_flat_terrain.xml")
 ONNX = os.path.join(ROOT, "policies", "go2_stand_jump.onnx")
 KP, KD, ACTION_SCALE = 35.0, 0.5, 0.5

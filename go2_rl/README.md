@@ -45,6 +45,15 @@ python3 scripts/onnx_go2_viewer.py --vx 0.6
 - Go2 walk：obs 48（本体感知）；getup：obs 42（相对当前动作）；standjump：obs 48。
 - 自建狗 stand：obs 30；walk：obs 35（含步态时钟）；动作均 8 维关节增量，env 内 PD。
 
+## 资产 / 运行 viewer
+- 自建狗：`envs/mydog/xmls/` 已含模型 + `.stl` 资产，viewer 可直接跑：
+  ```bash
+  python3 scripts/onnx_mydog_stand_viewer.py \
+    --onnx policies/mydog_stand.onnx --xml envs/mydog/xmls/mydog_simple.xml
+  ```
+  （脚本默认路径按本仓库结构 `go2_rl/envs/...` 与 `go2_rl/policies/...` 解析。）
+- Go2：`envs/go2/xmls/assets/` 未内置 Unitree 网格（许可/体积），需从 `mujoco_menagerie/unitree_go2/assets` 复制。
+
 ## 已知
 - **MJX↔MuJoCo/真机 gap** 明显；训练环境里的策略不一定直接迁移。
 - 自建狗 “四条腿均匀 trot” 未完全解决（见笔记）。网格资产未包含。

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # 轻量看自建狗(mydog)直走策略: MuJoCo + onnxruntime, 无需 JAX
-# obs 33 = [gyro(3), gravity(3), command(3), (q-q_home)(8), qvel(8), last_act(8)]
+# obs 35 = [gyro(3), gravity(3), command(3), clock sin/cos(2), (q-q_home)(8), qvel(8), last_act(8)]
 # 动作: 8 力矩电机 + env 内 PD: target=q_home+act*0.1; tau=Kp*(target-q)-Kd*qd (clip ±12)
 import argparse, os, time
 import numpy as np
@@ -10,7 +10,7 @@ import onnxruntime as rt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-XML = os.path.join(ROOT, "mjplay", "mujoco_playground", "_src", "locomotion",
+XML = os.path.join(ROOT, "envs",
                    "mydog", "xmls", "mydog_simple.xml")
 ONNX = os.path.join(ROOT, "policies", "mydog_walk.onnx")
 KP, KD, ACTION_SCALE, TORQUE_LIMIT = 40.0, 0.5, 0.1, 12.0

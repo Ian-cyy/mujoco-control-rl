@@ -1,0 +1,17 @@
+# 经典控制（cartpole / furuta / go2 / go2_mpc）
+mujoco==3.15.0
+numpy
+scipy
+osqp
+casadi==3.8.1
+onnx==1.23.2
+onnxruntime==1.23.2
+
+# 用于查看/导出 ONNX 策略
+# pip install -r requirements.txt 即可跑经典控制与 viewer
+
+# ---- 强化学习 go2_rl（训练用，单独装）----
+# jax==0.6.2
+# brax
+# mujoco-mjx==3.15.0
+# mujoco_playground==0.1.0   # 注意：v0.1.0，支持 Python 3.10（源码安装）

@@ -22,13 +22,13 @@ Usage:
 """
 
 import copy
+import os
 import sys
 import xml.etree.ElementTree as ET
 
-XML = (
-    "/home/cyy/mujoco_ws/go2_rl/mjplay/mujoco_playground/_src/"
-    "locomotion/mydog/xmls/mydog_simple.xml"
-)
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+XML = os.path.join(ROOT, "envs", "mydog", "xmls", "mydog_simple.xml")
 
 # (reference body, target body, name rewrites inside the reflected subtree)
 JOBS = [
