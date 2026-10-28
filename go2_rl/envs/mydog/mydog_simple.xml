@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="dog_simple">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep="0.004" integrator="Euler" />
+  <default>
+    <geom group="1" type="mesh" density="0" contype="0" conaffinity="0" />
+  </default>
+  <asset>
+    <mesh name="motor" file="assets/motor.stl" />
+    <mesh name="knee_conn" file="assets/knee_conn.stl" />
+    <mesh name="hip_joint" file="assets/hip_joint.stl" />
+    <mesh name="thigh_in" file="assets/thigh_in.stl" />
+    <mesh name="thigh_mid" file="assets/thigh_mid.stl" />
+    <mesh name="thigh_out" file="assets/thigh_out.stl" />
+    <mesh name="shank" file="assets/shank.stl" />
+    <mesh name="foot" file="assets/foot.stl" />
+    <mesh name="rod_crank" file="assets/rod_crank.stl" />
+    <mesh name="rod" file="assets/rod.stl" />
+    <mesh name="body" file="assets/body.stl" />
+    <mesh name="knee_conn_R" file="assets/knee_conn_R.stl" />
+    <mesh name="motor_R" file="assets/motor_R.stl" />
+    <mesh name="thigh_in_R" file="assets/thigh_in_R.stl" />
+    <mesh name="thigh_mid_R" file="assets/thigh_mid_R.stl" />
+    <mesh name="thigh_out_R" file="assets/thigh_out_R.stl" />
+    <mesh name="shank_R" file="assets/shank_R.stl" />
+    <mesh name="foot_R" file="assets/foot_R.stl" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 2" dir="0 0 -1" diffuse="0.8 0.8 0.8" />
+    <geom name="floor" type="plane" size="4 4 0.1" rgba="0.25 0.3 0.35 1" contype="1" conaffinity="1" priority="1" friction="1 0.005 0.0001" />
+    <body name="base" pos="0 0 0.375">
+      <freejoint />
+      <site name="imu" pos="0 0 0" size="0.01" />
+      <geom name="base_col" type="box" size="0.16 0.09 0.055" pos="0.055 0 -0.005" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+      <inertial pos="0.06484263 -0.00000000 -0.01681156" mass="2.692261" fullinertia="0.01209870 0.09063706 0.09787942 0.00000064 -0.00000000 0.00000000" />
+      <geom type="mesh" mesh="body" pos="-0.02515737 0.00000000 0.02901283" quat="0.70710678 -0.70710678 0.00000000 0.00000000" />
+      <geom type="mesh" mesh="body" pos="0.15484263 0.00000000 0.02901283" quat="0.70710678 -0.70710678 0.00000000 0.00000000" />
+      <geom type="mesh" mesh="hip_joint" pos="-0.11515737 0.07150000 -0.01448717" quat="0.70710678 -0.00000000 0.00000000 0.70710678" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="hip_joint" pos="-0.11515737 -0.07150000 -0.01448717" quat="0.70710678 -0.00000000 0.00000000 0.70710678" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="hip_joint" pos="0.24484263 0.07150000 -0.01448717" quat="0.70710678 0.00000000 0.00000000 -0.70710678" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="hip_joint" pos="0.24484263 -0.07150000 -0.01448717" quat="0.70710678 -0.00000000 0.00000000 -0.70710678" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="motor" pos="-0.33040810 -0.04064535 0.11014647" quat="0.66094304 0.25130518 0.25130518 0.66094304" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="motor" pos="0.17859190 -0.04064535 0.11014647" quat="0.66094304 0.25130518 0.25130518 0.66094304" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="motor" pos="-0.04890663 0.04064535 0.11014647" quat="0.66094304 0.25130518 -0.25130518 -0.66094304" contype="0" conaffinity="0" />
+      <geom type="mesh" mesh="motor" pos="0.46009337 0.04064535 0.11014647" quat="0.66094304 0.25130518 -0.25130518 -0.66094304" contype="0" conaffinity="0" />
+      <body name="L1_thigh" pos="-0.18965737 0.07410000 -0.01448717">
+        <geom name="thigh_col1" type="capsule" fromto="0 0 0 -0.12395 0.07170 -0.15696" size="0.022" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+        <joint name="hip_L1" type="hinge" axis="-0.00000000 1.00000000 -0.00000000" damping="0.5" range="-1.6 1.6" />
+        <inertial pos="-0.02104425 0.06501120 -0.02457167" mass="0.629313" fullinertia="0.00237393 0.00308174 0.00172574 0.00031604 -0.00110260 0.00036860" />
+        <geom type="mesh" mesh="knee_conn" pos="-0.00000026 -0.00100000 -0.00000014" quat="0.94467133 0.00000000 0.32801842 -0.00000000" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="motor" pos="-0.18504242 -0.03544535 -0.03322074" quat="0.70438002 -0.06203854 -0.06203854 0.70438002" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="thigh_in" pos="0.04617094 0.07570000 0.05846789" quat="0.30832442 -0.63634586 0.63634586 -0.30832442" />
+        <geom type="mesh" mesh="thigh_mid" pos="0.04617094 0.09970000 0.05846789" quat="0.30832442 -0.63634586 0.63634586 -0.30832442" />
+        <geom type="mesh" mesh="thigh_out" pos="0.04617094 0.10370000 0.05846789" quat="-0.30832442 0.63634586 -0.63634586 0.30832442" />
+        <body name="L1_shank" pos="-0.12394884 0.07170000 -0.15696077">
+          <geom name="shank_col1" type="capsule" fromto="0 0 0 0.19704 0.01900 -0.05229" size="0.018" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <geom name="foot_col1" type="box" size="0.02 0.02 0.006" pos="0.19704 0.01900 -0.07129" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <joint name="knee_L1" type="hinge" axis="0.00000000 1.00000000 -0.00000000" damping="0.5" range="-1.2 1.2" />
+          <inertial pos="0.08082412 0.01836103 -0.00664767" mass="0.197749" fullinertia="0.00044378 0.00151754 0.00108809 -0.00000217 0.00035121 -0.00000129" />
+          <geom type="mesh" mesh="shank" pos="0.00000000 0.01800000 -0.00000000" quat="0.00000000 0.79261777 -0.00000000 0.60971884" />
+          <geom type="mesh" mesh="foot" pos="0.19330960 0.01900000 -0.05129717" quat="0.00000000 0.79261777 -0.00000000 0.60971884" />
+        </body>
+      </body>
+      <body name="L2_thigh" pos="0.31934263 0.07410000 -0.01448717">
+        <geom name="thigh_col2" type="capsule" fromto="0 0 0 -0.11852 0.10770 -0.16110" size="0.022" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+        <joint name="hip_L2" type="hinge" axis="0.00000000 1.00000000 0.00000000" damping="0.5" range="-1.6 1.6" />
+        <inertial pos="-0.01772986 0.06501120 -0.02618176" mass="0.629313" fullinertia="0.00235428 0.00311118 0.00177484 0.00028605 -0.00112678 0.00042093" />
+        <geom type="mesh" mesh="knee_conn" pos="0.00000025 -0.00100000 0.00000015" quat="-0.31184097 0.00000000 0.95013431 -0.00000000" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="motor" pos="0.18380025 -0.03544535 0.03951940" quat="0.07405631 0.70321808 0.70321808 0.07405631" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="thigh_in" pos="0.04414771 0.07570000 0.06001024" quat="0.31914466 -0.63098866 0.63098866 -0.31914466" />
+        <geom type="mesh" mesh="thigh_mid" pos="0.04414771 0.07970000 0.06001024" quat="0.63098866 -0.31914466 -0.31914466 0.63098866" />
+        <geom type="mesh" mesh="thigh_out" pos="0.04414771 0.10370000 0.06001024" quat="0.31914466 -0.63098866 0.63098866 -0.31914466" />
+        <body name="L2_shank" pos="-0.11851735 0.10770000 -0.16110133">
+          <geom name="shank_col2" type="capsule" fromto="0 0 0 0.18770 -0.01700 -0.07952" size="0.018" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <geom name="foot_col2" type="box" size="0.02 0.02 0.006" pos="0.18770 -0.01700 -0.09852" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <joint name="knee_L2" type="hinge" axis="-0.00000000 1.00000000 0.00000000" damping="0.5" range="-1.2 1.2" />
+          <inertial pos="0.07665232 -0.01763897 -0.01500629" mass="0.197749" fullinertia="0.00070016 0.00167874 0.00099291 -0.00000203 0.00049635 -0.00000135" />
+          <geom type="mesh" mesh="shank" pos="0.00000000 -0.01800000 0.00000000" quat="-0.00000000 0.83369478 0.00000000 0.55222551" />
+          <geom type="mesh" mesh="foot" pos="0.18415501 -0.01700000 -0.07801879" quat="0.00000000 0.83369478 0.00000000 0.55222551" />
+        </body>
+      </body>
+      <body name="L3_thigh" pos="-0.18965737 -0.07410000 -0.01448717">
+        <geom name="thigh_col3" type="capsule" fromto="0.00000000 -0.00000000 0.00000000 -0.12395000 -0.07170000 -0.15696000" size="0.022" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+        <joint name="hip_L3" type="hinge" axis="-0.00000000 -1.00000000 -0.00000000" damping="0.5" range="-1.6 1.6" />
+        <inertial pos="-0.02104425 -0.06501120 -0.02457167" mass="0.629313" fullinertia="0.00237393 0.00308174 0.00172574 -0.00031604 -0.00110260 -0.00036860" />
+        <geom type="mesh" mesh="knee_conn_R" pos="-0.00000026 0.00100000 -0.00000014" quat="0.94467133 -0.00000000 0.32801842 0.00000000" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="motor_R" pos="-0.18504242 0.03544535 -0.03322074" quat="0.70438002 0.06203854 -0.06203854 -0.70438002" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="thigh_in_R" pos="0.04617094 -0.07570000 0.05846789" quat="0.30832442 0.63634586 0.63634586 0.30832442" />
+        <geom type="mesh" mesh="thigh_mid_R" pos="0.04617094 -0.09970000 0.05846789" quat="0.30832442 0.63634586 0.63634586 0.30832442" />
+        <geom type="mesh" mesh="thigh_out_R" pos="0.04617094 -0.10370000 0.05846789" quat="-0.30832442 -0.63634586 -0.63634586 -0.30832442" />
+        <body name="L3_shank" pos="-0.12394884 -0.07170000 -0.15696077">
+          <geom name="shank_col3" type="capsule" fromto="0.00000000 -0.00000000 0.00000000 0.19704000 -0.01900000 -0.05229000" size="0.018" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <geom name="foot_col3" type="box" size="0.02 0.02 0.006" pos="0.19704000 -0.01900000 -0.07129000" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <joint name="knee_L3" type="hinge" axis="0.00000000 -1.00000000 -0.00000000" damping="0.5" range="-1.2 1.2" />
+          <inertial pos="0.08082412 -0.01836103 -0.00664767" mass="0.197749" fullinertia="0.00044378 0.00151754 0.00108809 0.00000217 0.00035121 0.00000129" />
+          <geom type="mesh" mesh="shank_R" pos="0.00000000 -0.01800000 -0.00000000" quat="0.00000000 -0.79261777 -0.00000000 -0.60971884" />
+          <geom type="mesh" mesh="foot_R" pos="0.19330960 -0.01900000 -0.05129717" quat="0.00000000 -0.79261777 -0.00000000 -0.60971884" />
+        </body>
+      </body>
+      <body name="L4_thigh" pos="0.31934263 -0.07410000 -0.01448717">
+        <geom name="thigh_col4" type="capsule" fromto="0.00000000 -0.00000000 0.00000000 -0.11852000 -0.10770000 -0.16110000" size="0.022" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+        <joint name="hip_L4" type="hinge" axis="0.00000000 -1.00000000 0.00000000" damping="0.5" range="-1.6 1.6" />
+        <inertial pos="-0.01772986 -0.06501120 -0.02618176" mass="0.629313" fullinertia="0.00235428 0.00311118 0.00177484 -0.00028605 -0.00112678 -0.00042093" />
+        <geom type="mesh" mesh="knee_conn_R" pos="0.00000025 0.00100000 0.00000015" quat="-0.31184097 -0.00000000 0.95013431 0.00000000" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="motor_R" pos="0.18380025 0.03544535 0.03951940" quat="0.07405631 -0.70321808 0.70321808 -0.07405631" contype="0" conaffinity="0" />
+        <geom type="mesh" mesh="thigh_in_R" pos="0.04414771 -0.07570000 0.06001024" quat="0.31914466 0.63098866 0.63098866 0.31914466" />
+        <geom type="mesh" mesh="thigh_mid_R" pos="0.04414771 -0.07970000 0.06001024" quat="0.63098866 0.31914466 -0.31914466 -0.63098866" />
+        <geom type="mesh" mesh="thigh_out_R" pos="0.04414771 -0.10370000 0.06001024" quat="0.31914466 0.63098866 0.63098866 0.31914466" />
+        <body name="L4_shank" pos="-0.11851735 -0.10770000 -0.16110133">
+          <geom name="shank_col4" type="capsule" fromto="0.00000000 -0.00000000 0.00000000 0.18770000 0.01700000 -0.07952000" size="0.018" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <geom name="foot_col4" type="box" size="0.02 0.02 0.006" pos="0.18770000 0.01700000 -0.09852000" group="3" contype="1" conaffinity="0" friction="1 0.005 0.0001" />
+          <joint name="knee_L4" type="hinge" axis="-0.00000000 -1.00000000 0.00000000" damping="0.5" range="-1.2 1.2" />
+          <inertial pos="0.07665232 0.01763897 -0.01500629" mass="0.197749" fullinertia="0.00070016 0.00167874 0.00099291 0.00000203 0.00049635 0.00000135" />
+          <geom type="mesh" mesh="shank_R" pos="0.00000000 0.01800000 0.00000000" quat="-0.00000000 -0.83369478 0.00000000 -0.55222551" />
+          <geom type="mesh" mesh="foot_R" pos="0.18415501 0.01700000 -0.07801879" quat="0.00000000 -0.83369478 0.00000000 -0.55222551" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="m_hip_L1" joint="hip_L1" gear="1" ctrlrange="-12 12" />
+    <motor name="m_knee_L1" joint="knee_L1" gear="1" ctrlrange="-12 12" />
+    <motor name="m_hip_L2" joint="hip_L2" gear="1" ctrlrange="-12 12" />
+    <motor name="m_knee_L2" joint="knee_L2" gear="1" ctrlrange="-12 12" />
+    <motor name="m_hip_L3" joint="hip_L3" gear="1" ctrlrange="-12 12" />
+    <motor name="m_knee_L3" joint="knee_L3" gear="1" ctrlrange="-12 12" />
+    <motor name="m_hip_L4" joint="hip_L4" gear="1" ctrlrange="-12 12" />
+    <motor name="m_knee_L4" joint="knee_L4" gear="1" ctrlrange="-12 12" />
+  </actuator>
+  <keyframe>
+    <key name="home" qpos="0.00000000 0.00000000 0.30000000 1.00000000 0.00000000 0.00000000 0.00000000 -0.23322000 0.39995000 0.07979000 0.11650000 0.23322000 -0.39995000 -0.07979000 -0.11650000" ctrl="0 0 0 0 0 0 0 0" />
+  </keyframe>
+  <sensor>
+    <gyro site="imu" name="gyro" />
+    <accelerometer site="imu" name="accelerometer" />
+    <framezaxis objtype="site" objname="imu" name="upvector" />
+    <framexaxis objtype="site" objname="imu" name="forwardvector" />
+    <contact name="foot1_floor" geom1="foot_col1" geom2="floor" reduce="mindist" num="1" data="found" />
+    <contact name="foot2_floor" geom1="foot_col2" geom2="floor" reduce="mindist" num="1" data="found" />
+    <contact name="foot3_floor" geom1="foot_col3" geom2="floor" reduce="mindist" num="1" data="found" />
+    <contact name="foot4_floor" geom1="foot_col4" geom2="floor" reduce="mindist" num="1" data="found" />
+  </sensor>
+</mujoco>

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+logs/
+checkpoints/
+*.mp4
+*.gif
+.DS_Store
+/tmp/
